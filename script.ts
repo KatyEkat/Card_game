@@ -15,17 +15,15 @@ const cardField = document.querySelector(
 ) as HTMLElement;
 
 let cards: any = [];
-const winScreen = document.querySelector('.result-screen-win-container')as HTMLElement;
-const lostScreen = document.querySelector('.result-screen-lost-container') as HTMLElement;
+const winScreen = document.querySelector(
+  '.result-screen-win-container'
+) as HTMLElement;
+const lostScreen = document.querySelector(
+  '.result-screen-lost-container'
+) as HTMLElement;
 
 // сохранение уровня сложности в глоб сост
-// fieldControls.forEach((control) => {
-//   control.addEventListener('click', () => {
-//     const level = (control as HTMLInputElement).value;
-//     localStorage.setItem('level', level);
-//     gameLevel = Number(level);
-//   });
-// });
+
 for (let i = 0; i < fieldControls.length; i++) {
   fieldControls[i].addEventListener('click', () => {
     console.log(`${fieldControls[i].name}: ${fieldControls[i].value}`);
@@ -81,7 +79,7 @@ const startGame = (gameLevel: Number) => {
 
   let elapsedSeconds = -5;
 
-  function setTimer(elapsedSeconds:any) {
+  function setTimer(elapsedSeconds: any) {
     // setTimeout(function () {
     //   // $('.timer').text(getElapsedTimeString(elapsedSeconds));
     //   document.querySelector('.timer').innerHTML =
@@ -137,7 +135,9 @@ const startGame = (gameLevel: Number) => {
             }, 500);
 
             if (
-              Array.from(cards).every((card: any) => card.className.includes('flip'))
+              Array.from(cards).every((card: any) =>
+                card.className.includes('flip')
+              )
             ) {
               gameSection.remove(gameTable);
               winScreen.style.display = 'inherit';
